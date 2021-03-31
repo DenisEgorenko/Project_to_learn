@@ -3,11 +3,14 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
+<div>
+      <div><Header /></div>
+
+      <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Че реально? <code>src/App.js</code> and save to reload.
         </p>
         <a
           className="App-link"
@@ -18,7 +21,19 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+      </div>
+
+</div>
+  );
+}
+
+function Header() {
+  return (
+      <div className="HeaderFunc">
+        <a href='#s' className="HeaderFuncLink">Home</a>
+          <a href='#s' className="HeaderFuncLink">Feed</a>
+          <a href='#s' className="HeaderFuncLink">Messages</a>
+      </div>
   );
 }
 
