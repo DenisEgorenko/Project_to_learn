@@ -5,7 +5,7 @@ function Nav() {
     return(
         <nav className = {styles.nav}>
             <div className = {styles.item}>
-                <a>Моя Страница</a>
+                <a href='/Profile'>Моя Страница</a>
             </div>
 
             <div className = {styles.item}>
@@ -13,7 +13,7 @@ function Nav() {
             </div>
 
             <div className = {styles.item}>
-                <a>Мессенджер</a>
+                <a href='/Messenger'>Мессенджер</a>
             </div>
 
             <div className = {styles.item}>

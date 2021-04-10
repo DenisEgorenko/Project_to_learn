@@ -5,8 +5,8 @@ import MyPosts from "./MyPost/MyPosts";
 
 function Profile() {
     return(
-        <div className = {styles.content}>
-            <img src='https://media.radissonhotels.net/image/destination-pages/localattraction/16256-118729-f63243387_3xl.jpg?impolicy=HomeHero'/>
+        <div>
+            <img className={styles.img} src='https://media.radissonhotels.net/image/destination-pages/localattraction/16256-118729-f63243387_3xl.jpg?impolicy=HomeHero'/>
 
             <div>
                 Ava + descr
