@@ -1,18 +1,35 @@
 import React from "react";
 import styles from './MyPosts.module.css'
 import Post from "./Post/Post";
+import {renderEntireTree} from "../../../Render";
+
+function MyPosts(props) {
+
+    let PostsElements = props.data.map((post) => <Post message = {post.message} like_count = {post.like_count}/>)
 
 
-function MyPosts() {
+    let newPostElement = React.createRef();
+
+    function addPost() {
+        let Text = newPostElement.current.value;
+        props.addPost(Text);
+        props.updateNewPostText('');
+    }
+
+    function onPostChange() {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text);
+
+    };
+
     return(
         <div>
 
-            My post
+            <div className={styles.CreatePost}>
 
-            <div>
+                <textarea ref = {newPostElement} value={props.newPostText} onChange={onPostChange}/>
 
-                <textarea></textarea>
-                <button>
+                <button onClick={addPost}>
                     Add Post
                 </button>
 
@@ -20,11 +37,7 @@ function MyPosts() {
 
             <div className={styles.posts}>
 
-                <Post message = 'Hi! How are you?' like_count = '5'/>
-                <Post message = "It's my first post" like_count = '15'/>
-                <Post message = 'Something 1' like_count = '25'/>
-                <Post message = 'Something 2' like_count = '35'/>
-                <Post message = 'Something 3' like_count = '45'/>
+                {PostsElements}
 
             </div>
 

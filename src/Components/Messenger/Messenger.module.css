@@ -1,6 +1,7 @@
-.dialogs {
+.messenger {
+    height: 100%;
     display: grid;
-    grid-template-columns: 3fr 10fr;
+    grid-template-columns: 2fr 10fr;
 }
 
 .dialogs_items {
@@ -9,5 +10,23 @@
 }
 
 .messages {
+    margin-left: 5px;
+    padding: 20px;
+}
+
+.sendMessage {
+    padding: 5px;
+}
+
+.sendMessage textarea {
+    float: left;
+    height: 40px;
+    width: 500px;
+}
+
+.sendMessage button {
+    margin-left: 5px;
+    height: 46px;
+    width: 80px;
 
 }

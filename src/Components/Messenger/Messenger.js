@@ -4,26 +4,50 @@ import Messenger_Dialog from "./Messenger_Dialog";
 import Message from "./Message";
 
 
-function Messenger(){
-    return(
-        <div className = {styles.dialogs}>
+function Messenger(props) {
 
-            <div className = {styles.dialogs_items}>
+    let newMessageArea = React.createRef();
 
-                <Messenger_Dialog name = 'Дима' id = '1'/>
-                <Messenger_Dialog name = 'Маша' id = '2'/>
+    function sendMessage() {
+        let Message = newMessageArea.current.value;
+        return(alert(Message))
+    }
+
+    let DialogsElements = props.DialogsData.map((dialog) => <Messenger_Dialog name={dialog.name} id={dialog.id}/>);
+
+    let MessagesElements = props.MessagesData.map((message) => <Message message={message.message}/>)
+
+    return (
+
+        <div className={styles.messenger}>
+
+            <div className={styles.dialogs_items}>
+
+                {DialogsElements}
 
             </div>
 
 
-            <div className = {styles.messages}>
+            <div className={styles.messages}>
 
-                <Message message = 'Hi'/>
-                <Message message = 'How are you?'/>
-                <Message message = 'Whats Up'/>
+                {MessagesElements}
+
+                <div className={styles.sendMessage}>
+
+                    <textarea ref={newMessageArea}>
+
+                    </textarea>
+
+                    <button onClick={sendMessage}>
+                        Отправить
+                    </button>
+
+                </div>
 
             </div>
+
         </div>
+
     )
 }
 

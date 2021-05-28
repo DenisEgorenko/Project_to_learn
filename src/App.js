@@ -4,11 +4,13 @@ import Header from "./Components/Header/Header";
 import Nav from "./Components/Nav_bar/Nav_bar";
 import Profile from "./Components/Profile/Profile";
 import Messenger from "./Components/Messenger/Messenger";
+
 import {BrowserRouter, Route} from "react-router-dom"
 
 
-function App() {
+function App(props) {
   return (
+
       <BrowserRouter>
           <div className = {styles.app_wrapper}>
 
@@ -17,8 +19,8 @@ function App() {
 
               <div className ={styles.app_wrapper_content}>
 
-                  <Route path='/Profile' component={Profile}/>
-                  <Route path='/Messenger' component={Messenger}/>
+                  <Route path='/Profile' render={ () => <Profile profilePage = {props.State.profilePage.PostsData} addPost = {props.addPost} newPostText = {props.State.profilePage.newPostText} updateNewPostText = {props.updateNewPostText}/> }/>
+                  <Route path='/Messenger' render={ () => <Messenger MessagesData = {props.State.messengerPage.MessagesData} DialogsData = {props.State.messengerPage.DialogsData}/> }/>
 
               </div>
 

@@ -1,0 +1,11 @@
+.message {
+    padding: 5px;
+}
+
+.message img {
+    padding: 5px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 40px;
+}
