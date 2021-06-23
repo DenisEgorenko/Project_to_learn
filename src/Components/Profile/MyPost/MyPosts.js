@@ -1,20 +1,12 @@
 import React from "react";
 import styles from './MyPosts.module.css'
 import Post from "./Post/Post";
-import {renderEntireTree} from "../../../Render";
 
 function MyPosts(props) {
 
     let PostsElements = props.data.map((post) => <Post message = {post.message} like_count = {post.like_count}/>)
 
-
     let newPostElement = React.createRef();
-
-    function addPost() {
-        let Text = newPostElement.current.value;
-        props.addPost(Text);
-        props.updateNewPostText('');
-    }
 
     function onPostChange() {
         let text = newPostElement.current.value;
@@ -29,7 +21,7 @@ function MyPosts(props) {
 
                 <textarea ref = {newPostElement} value={props.newPostText} onChange={onPostChange}/>
 
-                <button onClick={addPost}>
+                <button onClick={props.addPost}>
                     Add Post
                 </button>
 

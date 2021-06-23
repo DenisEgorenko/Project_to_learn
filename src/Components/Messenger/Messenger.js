@@ -8,14 +8,14 @@ function Messenger(props) {
 
     let newMessageArea = React.createRef();
 
-    function sendMessage() {
-        let Message = newMessageArea.current.value;
-        return(alert(Message))
-    }
-
     let DialogsElements = props.DialogsData.map((dialog) => <Messenger_Dialog name={dialog.name} id={dialog.id}/>);
 
     let MessagesElements = props.MessagesData.map((message) => <Message message={message.message}/>)
+
+    function onMessageChange(){
+        let text = newMessageArea.current.value;
+        props.updateNewMessageText(text);
+    }
 
     return (
 
@@ -34,11 +34,11 @@ function Messenger(props) {
 
                 <div className={styles.sendMessage}>
 
-                    <textarea ref={newMessageArea}>
+                    <textarea ref={newMessageArea} value={props.newMessageText} onChange={onMessageChange}>
 
                     </textarea>
 
-                    <button onClick={sendMessage}>
+                    <button onClick={props.addMessage}>
                         Отправить
                     </button>
 

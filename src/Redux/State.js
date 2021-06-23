@@ -1,5 +1,6 @@
-import {renderEntireTree} from "../Render";
+function rerenderEntireTree(){
 
+}
 
 let state = {
     profilePage: {
@@ -10,8 +11,7 @@ let state = {
             {id:4, message: 'So,What?', like_count: '35'},
             {id:5, message: 'Go with me!', like_count: '45'}
         ],
-
-        newPostText: 'Something'
+        newPostText: ''
     },
 
     messengerPage: {
@@ -29,26 +29,47 @@ let state = {
             {id:4, name: 'Виктор'},
             {id:5, name: 'Петр'}
         ],
+
+        newMessageText: ''
     },
 }
 
+window.state = state;
 
 export function addPost() {
     let data = {
         id:6,
         message: state.profilePage.newPostText,
-        like_count: '10'
+        like_count: '12'
     }
+
     state.profilePage.PostsData.push(data);
     state.profilePage.newPostText = '';
-    renderEntireTree(state);
-
+    rerenderEntireTree(state);
 }
-
 
 export function updateNewPostText(newText) {
     state.profilePage.newPostText = newText;
-    renderEntireTree(state);
+    rerenderEntireTree(state);
+}
+
+export function addMessage(){
+    let message = {
+        id:6,
+        message: state.messengerPage.newMessageText
+    }
+
+    state.messengerPage.MessagesData.push(message);
+    state.messengerPage.newMessageText = '';
+    rerenderEntireTree(state)
+}
+export function updateNewMessageText(newMessage){
+    state.messengerPage.newMessageText = newMessage;
+    rerenderEntireTree(state);
+}
+
+export function subscribe(observer){
+    rerenderEntireTree = observer;
 }
 
 export default state;
