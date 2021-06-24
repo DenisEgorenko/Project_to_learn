@@ -6,7 +6,7 @@ function Nav() {
     return(
         <nav className = {styles.nav}>
             <div className = {styles.item}>
-                <NavLink to ='/Profile' activeClassName = {styles.activeLink} >Моя Страница</NavLink>
+                <NavLink to ='/Profile' activeClassName = {styles.activeLink}>Моя Страница</NavLink>
             </div>
 
             <div className = {styles.item}>

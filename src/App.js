@@ -18,8 +18,8 @@ function App(props) {
 
               <div className ={styles.app_wrapper_content}>
 
-                  <Route path='/Profile' render={ () => <Profile profilePage = {props.State.profilePage.PostsData} addPost = {props.addPost} newPostText = {props.State.profilePage.newPostText} updateNewPostText = {props.updateNewPostText}/> }/>
-                  <Route path='/Messenger' render={ () => <Messenger MessagesData = {props.State.messengerPage.MessagesData} DialogsData = {props.State.messengerPage.DialogsData} newMessageText = {props.State.messengerPage.newMessageText} updateNewMessageText = {props.updateNewMessageText} addMessage = {props.addMessage}/> }/>
+                  <Route path='/Profile' render={ () => <Profile dispatch = {props.dispatch} profilePage = {props.State.profilePage.PostsData} newPostText = {props.State.profilePage.newPostText}/> }/>
+                  <Route path='/Messenger' render={ () => <Messenger dispatch = {props.dispatch} MessagesData = {props.State.messengerPage.MessagesData} DialogsData = {props.State.messengerPage.DialogsData} newMessageText = {props.State.messengerPage.newMessageText}/> }/>
 
               </div>
 

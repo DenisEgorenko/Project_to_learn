@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Messenger.module.css"
 import Messenger_Dialog from "./Messenger_Dialog";
 import Message from "./Message";
+import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../Redux/Dialogs_reducer";
 
 
 function Messenger(props) {
@@ -14,7 +15,11 @@ function Messenger(props) {
 
     function onMessageChange(){
         let text = newMessageArea.current.value;
-        props.updateNewMessageText(text);
+        props.dispatch(updateNewMessageTextActionCreator(text));
+    }
+
+    function addMessage(){
+        props.dispatch(addMessageActionCreator());
     }
 
     return (
@@ -38,7 +43,7 @@ function Messenger(props) {
 
                     </textarea>
 
-                    <button onClick={props.addMessage}>
+                    <button onClick={addMessage}>
                         Отправить
                     </button>
 
