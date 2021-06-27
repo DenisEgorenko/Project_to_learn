@@ -18,15 +18,23 @@ export function Profile_reducer(state = initialState, action) {
             message: state.newPostText,
             like_count: '12'
         }
-        state.PostsData.push(data);
-        state.newPostText = '';
+
+        let stateCopy = {...state}
+        stateCopy.PostsData = [...state.PostsData]
+        stateCopy.PostsData.push(data);
+        stateCopy.newPostText = '';
+        return stateCopy;
     }
 
     else if (action.type === 'UPDATE-NEW-POST-TEXT'){
-        state.newPostText = action.newText;
+        let stateCopy = {...state}
+        stateCopy.newPostText = action.newText;
+        return stateCopy;
+    } else {
+        return state;
     }
 
-    return state;
+
 }
 
 export function addPostActionCreator(){

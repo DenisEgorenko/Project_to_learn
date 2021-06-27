@@ -25,15 +25,28 @@ export function Dialogs_reducer(state = initialState, action) {
             id:6,
             message: state.newMessageText
         }
-        state.MessagesData.push(message);
-        state.newMessageText = '';
+
+        let stateCopy = {...state}
+        stateCopy.MessagesData = [...state.MessagesData]
+        stateCopy.MessagesData.push(message);
+        stateCopy.newMessageText = '';
+
+        return stateCopy;
     }
 
     else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT'){
-        state.newMessageText = action.newMessage;
+
+        let stateCopy = {...state}
+
+        stateCopy.newMessageText = action.newMessage;
+
+        return stateCopy;
     }
 
-    return state;
+    else {
+        return state;
+    }
+
 }
 
 
@@ -46,6 +59,6 @@ export function addMessageActionCreator(){
 export function updateNewMessageTextActionCreator(text){
     return {
         type:'UPDATE-NEW-MESSAGE-TEXT',
-        newMessage:text
+        newMessage: text
     };
 }

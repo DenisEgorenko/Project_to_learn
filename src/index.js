@@ -4,20 +4,16 @@ import reportWebVitals from './reportWebVitals';
 import ReactDOM from "react-dom";
 import App from "./App";
 import store from "./Redux/redux_store";
+import {Provider} from "react-redux";
 
 
-
-function rerenderEntireTree() {
-    ReactDOM.render(
-        <React.StrictMode>
-            <App State = {store.getState()} dispatch = {store.dispatch.bind(store)} />
-        </React.StrictMode>,
-        document.getElementById('root')
-    );
-}
-
-store.subscribe(rerenderEntireTree);
-
-rerenderEntireTree();
+ReactDOM.render(
+    <React.StrictMode>
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
+)
 
 reportWebVitals();

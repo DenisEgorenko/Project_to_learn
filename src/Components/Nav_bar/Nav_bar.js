@@ -18,7 +18,7 @@ function Nav() {
             </div>
 
             <div className = {styles.item}>
-                <NavLink to ='/Friends' activeClassName = {styles.activeLink}>Друзья</NavLink>
+                <NavLink to ='/Users' activeClassName = {styles.activeLink}>Друзья</NavLink>
             </div>
 
             <div className = {styles.item}>
