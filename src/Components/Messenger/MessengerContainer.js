@@ -2,13 +2,18 @@ import React from "react";
 import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../Redux/Dialogs_reducer";
 import Messenger from "./Messenger";
 import {connect} from "react-redux";
+import {withAuthRedirect} from "../../HOC/AuthRedirect";
+import {compose} from "redux";
+
+
 
 
 function mapStateToProps(store){
     return{
         DialogsData: store.messengerPage.DialogsData,
         MessagesData: store.messengerPage.MessagesData,
-        newMessageText: store.messengerPage.newMessageText
+        newMessageText: store.messengerPage.newMessageText,
+        isAuth: store.auth.isAuth
     }
 }
 
@@ -19,6 +24,7 @@ function mapDispatchToProps(dispatch){
     }
 }
 
-const MessengerContainer = connect(mapStateToProps, mapDispatchToProps)(Messenger);
-
-export default MessengerContainer;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)(Messenger);

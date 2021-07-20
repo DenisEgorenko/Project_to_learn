@@ -1,0 +1,44 @@
+.Users_Items {
+    border: 8px solid white;
+    background-color: rgba(211, 211, 211, 0.25);
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    grid-template-rows: 1fr 20px;
+    gap: 10px 10px;
+    grid-template-areas:
+    "Photo Name City"
+    "Button Status City";
+}
+
+
+.Photo {
+    grid-area: Photo;
+}
+
+.Button {
+    grid-area: Button;
+}
+
+.Name {
+    grid-area: Name;
+}
+
+.Status {
+    grid-area: Status;
+}
+
+.City {
+    grid-area: City;
+}
+
+.Users_Page img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 40px;
+}
+
+.selectedPage{
+    font-weight: bold;
+}

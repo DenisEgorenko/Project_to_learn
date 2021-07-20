@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Messenger.module.css"
 import Messenger_Dialog from "./Messenger_Dialog";
 import Message from "./Message";
+import {Redirect} from "react-router"
 
 
 function Messenger(props) {
@@ -19,6 +20,10 @@ function Messenger(props) {
 
     function addMessage(){
         props.addMessage();
+    }
+
+    if(!props.isAuth){
+        return <Redirect to={"/Login"}/>
     }
 
     return (

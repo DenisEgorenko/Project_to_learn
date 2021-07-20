@@ -4,7 +4,7 @@ import Post from "./Post/Post";
 
 function MyPosts(props) {
 
-    let PostsElements = props.PostsData.map((post) => <Post message = {post.message} like_count = {post.like_count}/>)
+    let PostsElements = props.PostsData.map((post) => <Post message={post.message} like_count={post.like_count}/>)
 
     let newPostElement = React.createRef();
 
@@ -17,12 +17,12 @@ function MyPosts(props) {
         props.addPost();
     };
 
-    return(
+    return (
         <div>
 
             <div className={styles.CreatePost}>
 
-                <textarea ref = {newPostElement} value={props.newPostText} onChange={onPostChange}/>
+                <textarea ref={newPostElement} value={props.newPostText} onChange={onPostChange}/>
 
                 <button onClick={addPost}>
                     Add Post
@@ -40,5 +40,5 @@ function MyPosts(props) {
     )
 }
 
-export default MyPosts;
+export default React.memo(MyPosts);
 
